@@ -25,6 +25,15 @@
             max-width: 600px;
             width: 100%;
         }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* זה מה שהופך את התמונה לעיגול */
+            object-fit: cover; /* מבטיח שהתמונה לא תתעוות */
+            margin-bottom: 20px;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
         h1 {
             color: #0056b3;
             font-size: 2.5em;
@@ -64,6 +73,9 @@
 <body>
 
     <div class="container">
+        <!--  כאן הוספתי את התמונה שלך  -->
+        <img src="https://mitmachim.top/assets/uploads/profile/2580-profileavatar.png" alt="תמונת הפרופיל של 2580" class="profile-pic">
+        
         <h1>ברוכים הבאים לאתר של 2580!</h1>
         <h2>חבר קהילת מתמחים טופ</h2>
         
