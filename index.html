@@ -10,16 +10,17 @@
             background-color: #f0f2f5;
             color: #333;
             margin: 0;
-            padding: 20px;
+            padding: 80px 20px 20px 20px; /* הוספנו ריווח למעלה כדי שהכרטיס לא ייצמד לקצה הדף */
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
             text-align: center;
         }
         .container {
+            position: relative; /* נדרש כדי שהתמונה תישאר ביחס למסגרת */
             background-color: #ffffff;
             padding: 40px;
+            padding-top: 80px; /* הגדלנו את הריווח העליון כדי לפנות מקום לתמונה */
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             max-width: 600px;
@@ -28,16 +29,22 @@
         .profile-pic {
             width: 120px;
             height: 120px;
-            border-radius: 50%; /* זה מה שהופך את התמונה לעיגול */
-            object-fit: cover; /* מבטיח שהתמונה לא תתעוות */
-            margin-bottom: 20px;
-            border: 4px solid #fff;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ffffff; /* הגדלנו מעט את המסגרת הלבנה סביב התמונה */
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            
+            /* --- זה הקסם --- */
+            position: absolute; /* מאפשר מיקום מדויק */
+            top: -60px; /* מושך את התמונה 60 פיקסלים למעלה (חצי מהגובה שלה) */
+            left: 50%; /* ממקם את הקצה השמאלי של התמונה באמצע */
+            transform: translateX(-50%); /* מחזיר את התמונה חצי מהרוחב שלה שמאלה, למרכוז מושלם */
         }
         h1 {
             color: #0056b3;
             font-size: 2.5em;
             margin-bottom: 10px;
+            margin-top: 0;
         }
         h2 {
             color: #555;
@@ -73,8 +80,8 @@
 <body>
 
     <div class="container">
-        <!--  כאן הוספתי את התמונה שלך  -->
-        <img src="https://mitmachim.top/assets/uploads/profile/2580-profileavatar.png" alt="תמונת הפרופיל של 2580" class="profile-pic">
+        <!-- המיקום של התמונה לא השתנה ב-HTML, רק העיצוב שלה ב-CSS -->
+        <img src="2580.jpeg" alt="תמונת הפרופיל של 2580" class="profile-pic">
         
         <h1>ברוכים הבאים לאתר של 2580!</h1>
         <h2>חבר קהילת מתמחים טופ</h2>
@@ -90,7 +97,7 @@
         </a>
 
         <footer>
-            <p>&copy; 2025 | נוצר באהבה ע"י ג'מיני עבור 2580</p>
+            <p>&copy; 2025 | נוצר לצורך הדגמה ע"י ג'מיני עבור 2580</p>
         </footer>
     </div>
 
