@@ -12,7 +12,6 @@
             background-color: #f0f2f5;
             color: #333;
             margin: 0;
-            /* הגדלת הריווח הכללי של הדף */
             padding: 100px 20px 60px 20px; 
             display: flex;
             justify-content: center;
@@ -22,7 +21,6 @@
         .container {
             position: relative;
             background-color: #ffffff;
-            /* הגדלת הריווח הפנימי של הכרטיס */
             padding: 80px 45px 45px 45px; 
             border-radius: 16px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.1);
@@ -48,7 +46,6 @@
             border: 0; 
             height: 1px; 
             background-color: #e0e0e0; 
-            /* הגדלת המרווח של הקו המפריד */
             margin: 50px auto; 
             width: 80%; 
         }
@@ -58,9 +55,9 @@
             justify-content: space-between;
             align-items: center;
             margin-top: 30px;
-            margin-bottom: 20px; /* יותר רווח לפני הפריטים */
+            margin-bottom: 20px;
             border-bottom: 2px solid #007bff;
-            padding-bottom: 8px; /* יותר רווח מתחת לכותרת */
+            padding-bottom: 8px;
         }
         .section-header h3 {
             font-size: 1.6em;
@@ -84,13 +81,13 @@
         .links-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 18px; /* הגדלת המרווח ברשת */
+            gap: 18px;
         }
         
         .links-container.list-view {
             display: flex;
             flex-direction: column;
-            gap: 15px; /* הגדלת המרווח ברשימה */
+            gap: 15px;
         }
         
         .content-link {
@@ -153,7 +150,7 @@
 
         <hr class="separator">
 
-        <!-- כותרת ובורר תצוגה למדריכים -->
+        <!-- קטגוריית המדריכים -->
         <div class="section-header">
             <h3>המדריכים שלי</h3>
             <div>
@@ -167,11 +164,11 @@
             <a href="https://mitmachim.top/topic/76064/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: גילוי סיסמת WiFi של הרשת שלכם</a>
             <a href="https://mitmachim.top/topic/76017/" target="_blank" rel="noopener noreferrer" class="content-link">מדריך: הורדת ISO של ווינדוס 10 ישירות ממייקרוסופט</a>
             <a href="https://mitmachim.top/topic/74160/" target="_blank" rel="noopener noreferrer" class="content-link">מדריך: התקנת תוספים בכרום באופן ידני</a>
-            <a href="https://mitmachim.top/topic/73967/" target="_blank" rel="noopener noreferrer" class="content-link">פתרון: עדכון מיקרוסופט מקריס מחשבים שמריצים במקביל Windows ולינוקס</a>
+            <a href="https://mitmachim.top/topic/73967/" target="_blank" rel="noopener noreferrer" class="content-link">פתרון: עדכון מיקרוסופט המקריס מחשבים עם Windows ולינוקס</a>
             <a href="https://mitmachim.top/topic/69842/" target="_blank" rel="noopener noreferrer" class="content-link">מדריך: מציאת ערך זיכרון למכשירי MTK</a>
         </div>
 
-        <!-- כותרת ובורר תצוגה ליצירות -->
+        <!-- קטגוריית היצירות -->
         <div class="section-header">
             <h3>יצירות שלי</h3>
             <div>
@@ -182,6 +179,26 @@
         <div class="links-container" id="creations-container">
             <a href="https://mitmachim.top/topic/84921/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: נגן הקלדה עם פיצ'רים נחמדים</a>
             <a href="https://mitmachim.top/topic/83780/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: תוכנה לחישוב מעשרות וחומש</a>
+            <a href="https://mitmachim.top/topic/75665/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: תוסף לכרום לשליטה על הזרמת מדיה</a>
+        </div>
+        
+        <!-- הקטגוריה החדשה: שיתופים מעניינים -->
+        <div class="section-header">
+            <h3>שיתופים מעניינים</h3>
+            <div>
+                <button id="grid-view-btn-3" class="view-toggle-btn" title="תצוגת רשת"><i class="fas fa-th-large"></i></button>
+                <button id="list-view-btn-3" class="view-toggle-btn" title="תצוגת רשימה"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div class="links-container" id="sharings-container">
+            <a href="https://mitmachim.top/topic/78758/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: מה קרה כשביקשתי מ-GPT לא לענות כלום</a>
+            <a href="https://mitmachim.top/topic/76315/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: משחק גלישת גלים בהתקנת ווינדוס 11</a>
+            <a href="https://mitmachim.top/post/909336" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: מודל AI חדש (DeepSeek) מטלטל את שוק ההון עקבו אחרי הפוסטים שלי בשרשור...</a>
+            <a href="https://mitmachim.top/topic/68978/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: פתרון לניווט כשנתקעים בלי GPS</a>
+            <a href="https://mitmachim.top/topic/61157/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: שני כלי AI חדשים שנחשפתי אליהם</a>
+            <a href="https://mitmachim.top/topic/56954/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: סיפור הזוי על חכמתה של דודה בינה</a>
+            <a href="https://mitmachim.top/topic/53590/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: אתר להורדה חינמית של קבצים ויקטוריים</a>
+            <a href="https://mitmachim.top/post/839128" target="_blank" rel="noopener noreferrer" class="content-link">סקירה: אוזניות סוני wf-1000xm5 (האוזניות שלי...)</a>
         </div>
         
         <hr class="separator">
@@ -226,6 +243,9 @@
 
         // מפעילים את הפונקציה עבור קטגוריית היצירות
         setupViewToggle('grid-view-btn-2', 'list-view-btn-2', 'creations-container');
+
+        // מפעילים את הפונקציה עבור קטגוריית השיתופים
+        setupViewToggle('grid-view-btn-3', 'list-view-btn-3', 'sharings-container');
     </script>
 </body>
 </html>
