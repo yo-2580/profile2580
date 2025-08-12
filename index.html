@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>האתר של 2580</title>
+    <!-- הוספת Font Awesome בשביל אייקונים יפים -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
             background-color: #f0f2f5;
             color: #333;
             margin: 0;
-            padding: 80px 20px 40px 20px;
+            /* הגדלת הריווח הכללי של הדף */
+            padding: 100px 20px 60px 20px; 
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -19,11 +22,11 @@
         .container {
             position: relative;
             background-color: #ffffff;
-            padding: 40px;
-            padding-top: 80px;
+            /* הגדלת הריווח הפנימי של הכרטיס */
+            padding: 80px 45px 45px 45px; 
             border-radius: 16px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-            max-width: 850px; /* הגדלנו את הרוחב כדי לתת מקום לרשת */
+            max-width: 780px;
             width: 100%;
         }
         .profile-pic {
@@ -38,48 +41,62 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        h1 {
-            color: #0056b3;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            margin-top: 0;
-        }
-        h2 {
-            color: #555;
-            font-weight: 300;
-            margin-top: 0;
-            margin-bottom: 30px;
-        }
-        h3 {
-            font-size: 1.5em;
-            color: #333;
-            margin-top: 30px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 5px;
-            display: inline-block;
-        }
-        p {
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-        .separator {
-            border: 0;
-            height: 1px;
-            background-color: #e0e0e0;
-            margin: 40px 0;
+        h1 { color: #0056b3; font-size: 2.5em; margin-bottom: 10px; margin-top: 0; }
+        h2 { color: #555; font-weight: 300; margin-top: 0; margin-bottom: 30px; }
+        p { font-size: 1.1em; line-height: 1.6; }
+        .separator { 
+            border: 0; 
+            height: 1px; 
+            background-color: #e0e0e0; 
+            /* הגדלת המרווח של הקו המפריד */
+            margin: 50px auto; 
+            width: 80%; 
         }
         
-        /* --- כאן השינוי העיקרי --- */
-        .links-container {
-            display: grid; /* הפכנו את התצוגה לרשת */
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* יצירת עמודות רספונסיביות */
-            gap: 15px; /* רווח בין הכרטיסיות */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            margin-bottom: 20px; /* יותר רווח לפני הפריטים */
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 8px; /* יותר רווח מתחת לכותרת */
         }
+        .section-header h3 {
+            font-size: 1.6em;
+            color: #333;
+            margin: 0;
+            font-weight: bold;
+        }
+        
+        .view-toggle-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #aaa;
+            padding: 5px 10px;
+            transition: color 0.2s;
+        }
+        .view-toggle-btn:hover { color: #555; }
+        .view-toggle-btn.active { color: #007bff; }
+
+        .links-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px; /* הגדלת המרווח ברשת */
+        }
+        
+        .links-container.list-view {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* הגדלת המרווח ברשימה */
+        }
+        
         .content-link {
-            display: flex; /* שימוש ב-flex כדי ליישר את התוכן */
-            align-items: center; /* מרכוז אנכי של הטקסט בכרטיס */
-            justify-content: flex-start; /* יישור התוכן להתחלה (ימין ב-RTL) */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
             background-color: #f8f9fa;
             color: #343a40;
             padding: 15px 20px;
@@ -89,7 +106,7 @@
             transition: all 0.2s ease-in-out;
             font-weight: 500;
             text-align: right;
-            min-height: 60px; /* גובה מינימלי כדי לשמור על אחידות */
+            min-height: 60px;
         }
         .content-link:hover {
             background-color: #e9ecef;
@@ -98,6 +115,13 @@
             transform: translateY(-3px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
+        
+        .links-container.list-view .content-link {
+            padding: 14px 20px;
+            min-height: auto;
+            font-size: 1.05em;
+        }
+        
         .main-button {
             display: inline-block;
             background-color: #007bff;
@@ -109,19 +133,13 @@
             margin-top: 20px;
             transition: background-color 0.3s ease;
         }
-        .main-button:hover {
-            background-color: #0056b3;
-        }
-        footer {
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: #888;
-        }
+        .main-button:hover { background-color: #0056b3; }
+        footer { margin-top: 40px; font-size: 0.9em; color: #888; }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="container" id="main-container">
         <img src="2580.jpeg" alt="תמונת הפרופיל של 2580" class="profile-pic">
         
         <h1>ברוכים הבאים לאתר של 2580!</h1>
@@ -135,21 +153,33 @@
 
         <hr class="separator">
 
-        <!-- קטגוריית המדריכים -->
-        <h3>המדריכים שלי</h3>
-        <div class="links-container">
+        <!-- כותרת ובורר תצוגה למדריכים -->
+        <div class="section-header">
+            <h3>המדריכים שלי</h3>
+            <div>
+                <button id="grid-view-btn-1" class="view-toggle-btn" title="תצוגת רשת"><i class="fas fa-th-large"></i></button>
+                <button id="list-view-btn-1" class="view-toggle-btn" title="תצוגת רשימה"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div class="links-container" id="guides-container">
             <a href="https://mitmachim.top/topic/86704/" target="_blank" rel="noopener noreferrer" class="content-link">מדריך: שימוש בגיטהאב לאיחסון האתר שלכם סטטי</a>
             <a href="https://mitmachim.top/topic/81363/" target="_blank" rel="noopener noreferrer" class="content-link">מדריך: מציאת דגם המעבד של מכשיר ה-MTK שלכם</a>
             <a href="https://mitmachim.top/topic/76064/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: גילוי סיסמת WiFi של הרשת שלכם</a>
             <a href="https://mitmachim.top/topic/76017/" target="_blank" rel="noopener noreferrer" class="content-link">מדריך: הורדת ISO של ווינדוס 10 ישירות ממייקרוסופט</a>
             <a href="https://mitmachim.top/topic/74160/" target="_blank" rel="noopener noreferrer" class="content-link">מדריך: התקנת תוספים בכרום באופן ידני</a>
-            <a href="https://mitmachim.top/topic/73967/" target="_blank" rel="noopener noreferrer" class="content-link">פתרון: עדכון שמקריס מחשבים שמריצים Windows ולינוקס במקביל</a>
+            <a href="https://mitmachim.top/topic/73967/" target="_blank" rel="noopener noreferrer" class="content-link">פתרון: עדכון שמקריס מחשבים עם Windows ולינוקס</a>
             <a href="https://mitmachim.top/topic/69842/" target="_blank" rel="noopener noreferrer" class="content-link">מדריך: מציאת ערך זיכרון למכשירי MTK</a>
         </div>
 
-        <!-- קטגוריית היצירות -->
-        <h3>יצירות שלי</h3>
-        <div class="links-container">
+        <!-- כותרת ובורר תצוגה ליצירות -->
+        <div class="section-header">
+            <h3>יצירות שלי</h3>
+            <div>
+                <button id="grid-view-btn-2" class="view-toggle-btn" title="תצוגת רשת"><i class="fas fa-th-large"></i></button>
+                <button id="list-view-btn-2" class="view-toggle-btn" title="תצוגת רשימה"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div class="links-container" id="creations-container">
             <a href="https://mitmachim.top/topic/84921/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: נגן הקלדה עם פיצ'רים נחמדים</a>
             <a href="https://mitmachim.top/topic/83780/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: תוכנה לחישוב מעשרות וחומש</a>
         </div>
@@ -165,5 +195,37 @@
         </footer>
     </div>
 
+    <!-- --- כאן נמצא ה-JavaScript --- -->
+    <script>
+        function setupViewToggle(gridBtnId, listBtnId, containerId) {
+            const gridViewBtn = document.getElementById(gridBtnId);
+            const listViewBtn = document.getElementById(listBtnId);
+            const container = document.getElementById(containerId);
+
+            function setListView(isListView) {
+                if (isListView) {
+                    container.classList.add('list-view');
+                    listViewBtn.classList.add('active');
+                    gridViewBtn.classList.remove('active');
+                } else {
+                    container.classList.remove('list-view');
+                    gridViewBtn.classList.add('active');
+                    listViewBtn.classList.remove('active');
+                }
+            }
+
+            gridViewBtn.addEventListener('click', () => setListView(false));
+            listViewBtn.addEventListener('click', () => setListView(true));
+
+            // Set initial state (default to grid view)
+            setListView(false);
+        }
+
+        // מפעילים את הפונקציה עבור קטגוריית המדריכים
+        setupViewToggle('grid-view-btn-1', 'list-view-btn-1', 'guides-container');
+
+        // מפעילים את הפונקציה עבור קטגוריית היצירות
+        setupViewToggle('grid-view-btn-2', 'list-view-btn-2', 'creations-container');
+    </script>
 </body>
 </html>
