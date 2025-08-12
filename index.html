@@ -6,24 +6,24 @@
     <title>האתר של 2580</title>
     <style>
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
             background-color: #f0f2f5;
             color: #333;
             margin: 0;
-            padding: 80px 20px 20px 20px; /* הוספנו ריווח למעלה כדי שהכרטיס לא ייצמד לקצה הדף */
+            padding: 80px 20px 40px 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             text-align: center;
         }
         .container {
-            position: relative; /* נדרש כדי שהתמונה תישאר ביחס למסגרת */
+            position: relative;
             background-color: #ffffff;
             padding: 40px;
-            padding-top: 80px; /* הגדלנו את הריווח העליון כדי לפנות מקום לתמונה */
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            max-width: 600px;
+            padding-top: 80px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            max-width: 850px; /* הגדלנו את הרוחב כדי לתת מקום לרשת */
             width: 100%;
         }
         .profile-pic {
@@ -31,14 +31,12 @@
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid #ffffff; /* הגדלנו מעט את המסגרת הלבנה סביב התמונה */
+            border: 5px solid #ffffff;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            
-            /* --- זה הקסם --- */
-            position: absolute; /* מאפשר מיקום מדויק */
-            top: -60px; /* מושך את התמונה 60 פיקסלים למעלה (חצי מהגובה שלה) */
-            left: 50%; /* ממקם את הקצה השמאלי של התמונה באמצע */
-            transform: translateX(-50%); /* מחזיר את התמונה חצי מהרוחב שלה שמאלה, למרכוז מושלם */
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
         }
         h1 {
             color: #0056b3;
@@ -52,11 +50,55 @@
             margin-top: 0;
             margin-bottom: 30px;
         }
+        h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
         p {
             font-size: 1.1em;
             line-height: 1.6;
         }
-        .link-button {
+        .separator {
+            border: 0;
+            height: 1px;
+            background-color: #e0e0e0;
+            margin: 40px 0;
+        }
+        
+        /* --- כאן השינוי העיקרי --- */
+        .links-container {
+            display: grid; /* הפכנו את התצוגה לרשת */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* יצירת עמודות רספונסיביות */
+            gap: 15px; /* רווח בין הכרטיסיות */
+        }
+        .content-link {
+            display: flex; /* שימוש ב-flex כדי ליישר את התוכן */
+            align-items: center; /* מרכוז אנכי של הטקסט בכרטיס */
+            justify-content: flex-start; /* יישור התוכן להתחלה (ימין ב-RTL) */
+            background-color: #f8f9fa;
+            color: #343a40;
+            padding: 15px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            transition: all 0.2s ease-in-out;
+            font-weight: 500;
+            text-align: right;
+            min-height: 60px; /* גובה מינימלי כדי לשמור על אחידות */
+        }
+        .content-link:hover {
+            background-color: #e9ecef;
+            border-color: #007bff;
+            color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .main-button {
             display: inline-block;
             background-color: #007bff;
             color: #ffffff;
@@ -67,7 +109,7 @@
             margin-top: 20px;
             transition: background-color 0.3s ease;
         }
-        .link-button:hover {
+        .main-button:hover {
             background-color: #0056b3;
         }
         footer {
@@ -80,7 +122,6 @@
 <body>
 
     <div class="container">
-        <!-- המיקום של התמונה לא השתנה ב-HTML, רק העיצוב שלה ב-CSS -->
         <img src="2580.jpeg" alt="תמונת הפרופיל של 2580" class="profile-pic">
         
         <h1>ברוכים הבאים לאתר של 2580!</h1>
@@ -89,11 +130,34 @@
         <p>
             זהו המרחב האישי שלי ברשת. שמח לראות אתכם כאן!
             <br>
-            אני פעיל בעיקר בקהילת הטכנולוגיה והתוכנה, שם אני משתף ידע, עוזר למשתמשים אחרים ולומד דברים חדשים כל יום.
+            בקהילה אני נהנה לשתף ידע, לעזור לאחרים וליצור כלים שימושיים.
         </p>
+
+        <hr class="separator">
+
+        <!-- קטגוריית המדריכים -->
+        <h3>המדריכים שלי</h3>
+        <div class="links-container">
+            <a href="https://mitmachim.top/topic/86704/" target="_blank" rel="noopener noreferrer" class="content-link">מדריך: שימוש בגיטהאב לאיחסון האתר שלכם סטטי</a>
+            <a href="https://mitmachim.top/topic/81363/" target="_blank" rel="noopener noreferrer" class="content-link">מדריך: מציאת דגם המעבד של מכשיר ה-MTK שלכם</a>
+            <a href="https://mitmachim.top/topic/76064/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: גילוי סיסמת WiFi של הרשת שלכם</a>
+            <a href="https://mitmachim.top/topic/76017/" target="_blank" rel="noopener noreferrer" class="content-link">מדריך: הורדת ISO של ווינדוס 10 ישירות ממייקרוסופט</a>
+            <a href="https://mitmachim.top/topic/74160/" target="_blank" rel="noopener noreferrer" class="content-link">מדריך: התקנת תוספים בכרום באופן ידני</a>
+            <a href="https://mitmachim.top/topic/73967/" target="_blank" rel="noopener noreferrer" class="content-link">פתרון: עדכון שמקריס מחשבים שמריצים Windows ולינוקס במקביל</a>
+            <a href="https://mitmachim.top/topic/69842/" target="_blank" rel="noopener noreferrer" class="content-link">מדריך: מציאת ערך זיכרון למכשירי MTK</a>
+        </div>
+
+        <!-- קטגוריית היצירות -->
+        <h3>יצירות שלי</h3>
+        <div class="links-container">
+            <a href="https://mitmachim.top/topic/84921/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: נגן הקלדה עם פיצ'רים נחמדים</a>
+            <a href="https://mitmachim.top/topic/83780/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: תוכנה לחישוב מעשרות וחומש</a>
+        </div>
         
-        <a href="https://mitmachim.top/user/2580" target="_blank" class="link-button">
-            בקרו בפרופיל שלי במתמחים טופ
+        <hr class="separator">
+        
+        <a href="https://mitmachim.top/user/2580" target="_blank" class="main-button">
+            בקרו בפרופיל המלא שלי במתמחים טופ
         </a>
 
         <footer>
