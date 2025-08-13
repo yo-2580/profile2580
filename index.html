@@ -28,9 +28,15 @@
         p { font-size: 1.1em; line-height: 1.6; }
         .separator { border: 0; height: 1px; background-color: var(--separator-color); margin: 50px auto; width: 80%; transition: background-color 0.3s; }
         .section-header { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; margin-bottom: 20px; border-bottom: 2px solid var(--active-nav-color); padding-bottom: 8px; transition: border-color 0.3s; }
+        .view-toggle-btn { background: none; border: none; cursor: pointer; font-size: 1.5em; color: #aaa; padding: 5px 10px; transition: color 0.2s; }
+        .view-toggle-btn:hover { color: #555; }
+        .dark-mode .view-toggle-btn:hover { color: #fff; }
+        .view-toggle-btn.active { color: var(--active-nav-color); }
         .links-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+        .links-container.list-view { display: flex; flex-direction: column; gap: 15px; }
         .content-link { display: flex; align-items: center; justify-content: flex-start; background-color: var(--link-card-bg); color: var(--text-color); padding: 15px 20px; text-decoration: none; border-radius: 8px; border: 1px solid var(--link-card-border); transition: all 0.2s ease-in-out; font-weight: 500; text-align: right; min-height: 60px; }
         .content-link:hover { background-color: #e9ecef; border-color: var(--active-nav-color); color: #0056b3; transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .links-container.list-view .content-link { padding: 14px 20px; min-height: auto; font-size: 1.05em; }
         .dark-mode .content-link:hover { background-color: #3a3a3a; color: #fff; }
         .view-all-btn { display: inline-block; text-align: center; margin-top: 25px; padding: 10px 20px; background-color: #e9ecef; color: #0056b3; text-decoration: none; font-weight: bold; border-radius: 25px; transition: background-color 0.3s; }
         .view-all-btn:hover { background-color: #dbe4f0; }
@@ -58,42 +64,101 @@
         <h2>חבר קהילת מתמחים טופ</h2>
         <p>זהו המרחב האישי שלי ברשת. שמח לראות אתכם כאן!<br>בקהילה אני נהנה לשתף ידע, לעזור לאחרים וליצור כלים שימושיים.</p>
         <hr class="separator">
-        <div class="section-header"><h3>המדריכים שלי</h3></div>
-        <div class="links-container">
-             <a href="https://mitmachim.top/topic/86704/" target="_blank" rel="noopener noreferrer" class="content-link">מדריך: שימוש בגיטהאב לאיחסון האתר שלכם סטטי</a>
+
+        <!-- מדריכים -->
+        <div class="section-header">
+            <h3>המדריכים שלי</h3>
+            <div>
+                <button id="grid-view-btn-1" class="view-toggle-btn" title="תצוגת רשת"><i class="fas fa-th-large"></i></button>
+                <button id="list-view-btn-1" class="view-toggle-btn" title="תצוגת רשימה"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div class="links-container" id="guides-container">
+            <a href="https://mitmachim.top/topic/86704/" target="_blank" rel="noopener noreferrer" class="content-link">מדריך: שימוש בגיטהאב לאיחסון האתר שלכם סטטי</a>
             <a href="https://mitmachim.top/topic/81363/" target="_blank" rel="noopener noreferrer" class="content-link">מדריך: מציאת דגם המעבד של מכשיר ה-MTK שלכם</a>
             <a href="https://mitmachim.top/topic/76064/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: גילוי סיסמת WiFi של הרשת שלכם</a>
             <a href="https://mitmachim.top/topic/76017/" target="_blank" rel="noopener noreferrer" class="content-link">מדריך: הורדת ISO של ווינדוס 10 ישירות ממייקרוסופט</a>
         </div>
         <a href="guides.html" class="view-all-btn">לכל המדריכים...</a>
-        <div class="section-header"><h3>היצירות שלי</h3></div>
-        <div class="links-container">
+        
+        <!-- יצירות -->
+        <div class="section-header">
+            <h3>היצירות שלי</h3>
+            <div>
+                <button id="grid-view-btn-2" class="view-toggle-btn" title="תצוגת רשת"><i class="fas fa-th-large"></i></button>
+                <button id="list-view-btn-2" class="view-toggle-btn" title="תצוגת רשימה"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div class="links-container" id="creations-container">
             <a href="https://mitmachim.top/topic/84921/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: נגן הקלדה עם פיצ'רים נחמדים</a>
             <a href="https://mitmachim.top/topic/83780/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: תוכנה לחישוב מעשרות וחומש</a>
             <a href="https://mitmachim.top/topic/75665/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: תוסף לכרום לשליטה על הזרמת מדיה</a>
         </div>
         <a href="creations.html" class="view-all-btn">לכל היצירות...</a>
-        <div class="section-header"><h3>שיתופים מעניינים</h3></div>
-        <div class="links-container">
+        
+        <!-- שיתופים -->
+        <div class="section-header">
+            <h3>שיתופים מעניינים</h3>
+            <div>
+                <button id="grid-view-btn-3" class="view-toggle-btn" title="תצוגת רשת"><i class="fas fa-th-large"></i></button>
+                <button id="list-view-btn-3" class="view-toggle-btn" title="תצוגת רשימה"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div class="links-container" id="shares-container">
             <a href="https://mitmachim.top/topic/78758/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: מה קרה כשביקשתי מ-GPT לא לענות כלום</a>
             <a href="https://mitmachim.top/topic/76315/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: משחק גלישת גלים בהתקנת ווינדוס 11</a>
             <a href="https://mitmachim.top/post/909336" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: מודל AI חדש (DeepSeek) מטלטל את שוק ההון...</a>
             <a href="https://mitmachim.top/topic/68978/" target="_blank" rel="noopener noreferrer" class="content-link">שיתוף: פתרון לניווט כשנתקעים בלי GPS</a>
         </div>
         <a href="shares.html" class="view-all-btn">לכל השיתופים...</a>
+
         <hr class="separator">
         <a href="https://mitmachim.top/user/2580" target="_blank" class="main-cta-btn">רוצים לקרוא עוד? בקרו בפרופיל שלי!</a>
         <footer><p>&copy; 2025 | נוצר לצורך הדגמה ע"י ג'מיני עבור 2580</p></footer>
     </div>
     <button id="dark-mode-toggle" title="שנה מצב תצוגה"><i class="fas fa-moon"></i></button>
     <script>
-        const toggleBtn = document.getElementById('dark-mode-toggle');
-        const toggleIcon = toggleBtn.querySelector('i');
+        // Dark Mode Toggle
+        const darkModeBtn = document.getElementById('dark-mode-toggle');
+        const darkModeIcon = darkModeBtn.querySelector('i');
         const docElement = document.documentElement;
+        function setDarkModeIcon() { if (docElement.classList.contains('dark-mode')) { darkModeIcon.classList.remove('fa-moon'); darkModeIcon.classList.add('fa-sun'); } else { darkModeIcon.classList.remove('fa-sun'); darkModeIcon.classList.add('fa-moon'); } }
+        darkModeBtn.addEventListener('click', () => { docElement.classList.toggle('dark-mode'); localStorage.setItem('theme', docElement.classList.contains('dark-mode') ? 'dark' : 'light'); setDarkModeIcon(); });
+        setDarkModeIcon();
 
-        function setIcon() { if (docElement.classList.contains('dark-mode')) { toggleIcon.classList.remove('fa-moon'); toggleIcon.classList.add('fa-sun'); } else { toggleIcon.classList.remove('fa-sun'); toggleIcon.classList.add('fa-moon'); } }
-        toggleBtn.addEventListener('click', () => { docElement.classList.toggle('dark-mode'); if (docElement.classList.contains('dark-mode')) { localStorage.setItem('theme', 'dark'); } else { localStorage.setItem('theme', 'light'); } setIcon(); });
-        setIcon();
+        // Reusable function for Grid/List View Toggle
+        function setupViewToggle(gridBtnId, listBtnId, containerId, storageKey) {
+            const gridViewBtn = document.getElementById(gridBtnId);
+            const listViewBtn = document.getElementById(listBtnId);
+            const container = document.getElementById(containerId);
+            const savedView = localStorage.getItem(storageKey);
+
+            if (savedView === 'list') {
+                container.classList.add('list-view');
+                listViewBtn.classList.add('active');
+            } else {
+                gridViewBtn.classList.add('active');
+            }
+
+            gridViewBtn.addEventListener('click', () => {
+                container.classList.remove('list-view');
+                gridViewBtn.classList.add('active');
+                listViewBtn.classList.remove('active');
+                localStorage.setItem(storageKey, 'grid');
+            });
+
+            listViewBtn.addEventListener('click', () => {
+                container.classList.add('list-view');
+                listViewBtn.classList.add('active');
+                gridViewBtn.classList.remove('active');
+                localStorage.setItem(storageKey, 'list');
+            });
+        }
+        
+        // Initialize toggles for each section on the home page
+        setupViewToggle('grid-view-btn-1', 'list-view-btn-1', 'guides-container', 'viewModeGuides');
+        setupViewToggle('grid-view-btn-2', 'list-view-btn-2', 'creations-container', 'viewModeCreations');
+        setupViewToggle('grid-view-btn-3', 'list-view-btn-3', 'shares-container', 'viewModeShares');
     </script>
 </body>
 </html>
